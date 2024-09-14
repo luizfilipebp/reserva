@@ -1,0 +1,6 @@
+rootProject.name = 'reserva'
+include 'core'
+include 'usecase'
+include 'application'
+include 'infrastructure'
+
