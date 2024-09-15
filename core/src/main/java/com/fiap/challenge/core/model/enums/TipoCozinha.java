@@ -1,6 +1,15 @@
 package com.fiap.challenge.core.model.enums;
 
+
 public enum TipoCozinha {
-    TESTE,
-    TESTE2;
+    ITALIANA,
+    JAPONESA,
+    BRASILEIRA,
+    MEXICANA,
+    CHINESA,
+    INDIANA,
+    FRANCESA,
+    TAILANDESA,
+    ARABE,
+    GREGA
 }
