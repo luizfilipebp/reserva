@@ -1,15 +1,15 @@
 package com.fiap.challenge.infrastructure.controller.dto;
 
 import com.fiap.challenge.core.model.enums.TipoCozinha;
-import com.fiap.challenge.core.model.valueobject.Endereco;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
 
 public record RestaurantePostReqBody(
-        String nome,
-        Endereco localizacao,
+        @Schema(type = "string", example = "La Cave Bar e Restaurante") String nome,
+        EnderecoDTO localizacao,
         TipoCozinha tipoCozinha,
         List<FuncionamentoDTO> diasFuncionamento,
-        int capacidade
+        @Schema(type = "integer", example = "100") int capacidade
 ) {
 }
