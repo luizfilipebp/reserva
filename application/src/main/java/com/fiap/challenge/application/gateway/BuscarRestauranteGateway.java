@@ -4,6 +4,7 @@ import com.fiap.challenge.core.model.Restaurante;
 import com.fiap.challenge.core.model.enums.TipoCozinha;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BuscarRestauranteGateway {
 
@@ -18,4 +19,6 @@ public interface BuscarRestauranteGateway {
     List<Restaurante> findByCidade(String cidade);
 
     List<Restaurante> findByTipo(TipoCozinha tipo);
+
+    Optional<Restaurante> findById(Long idMesa);
 }

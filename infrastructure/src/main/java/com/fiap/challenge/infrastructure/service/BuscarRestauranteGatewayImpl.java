@@ -35,6 +35,12 @@ public class BuscarRestauranteGatewayImpl implements BuscarRestauranteGateway {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    @Transactional
+    public Restaurante findById(Long idMesa) {
+        return repository.findById(idMesa).map(RestauranteMapper.INSTANCE::restauranteEntityToRestaurante).orElse(null);
+    }
+
 
     @Override
     @Transactional
