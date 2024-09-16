@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,8 +38,8 @@ public class BuscarRestauranteGatewayImpl implements BuscarRestauranteGateway {
 
     @Override
     @Transactional
-    public Restaurante findById(Long idMesa) {
-        return repository.findById(idMesa).map(RestauranteMapper.INSTANCE::restauranteEntityToRestaurante).orElse(null);
+    public Optional<Restaurante> findById(Long idMesa) {
+        return Optional.ofNullable(RestauranteMapper.INSTANCE.restauranteEntityToRestaurante(repository.findById(idMesa).orElse(null)));
     }
 
 
