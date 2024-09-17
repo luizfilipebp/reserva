@@ -7,15 +7,15 @@ import java.time.LocalDateTime;
 public class Reserva {
     private long id;
     private String nomeCliente;
-    private Long idMesa;
+    private Long idRestaurante;
     private LocalDateTime dataHora;
     private StatusMesa status;
     private int quantidadePessoas;
 
-    public Reserva(long id, String nomeCliente, Long idMesa, LocalDateTime dataHora, StatusMesa status, int quantidadePessoas) {
+    public Reserva(long id, String nomeCliente, Long idRestaurante, LocalDateTime dataHora, StatusMesa status, int quantidadePessoas) {
         this.id = id;
         this.nomeCliente = nomeCliente;
-        this.idMesa = idMesa;
+        this.idRestaurante = idRestaurante;
         this.dataHora = validarDataHora(dataHora);
         this.status = status;
         this.quantidadePessoas = validarQuantidadePessoas(quantidadePessoas);
@@ -53,11 +53,11 @@ public class Reserva {
     }
 
     public Long getIdMesa() {
-        return idMesa;
+        return idRestaurante;
     }
 
-    public void setIdMesa(Long idMesa) {
-        this.idMesa = idMesa;
+    public void setIdMesa(Long idRestaurante) {
+        this.idRestaurante = idRestaurante;
     }
 
     public LocalDateTime getDataHora() {
