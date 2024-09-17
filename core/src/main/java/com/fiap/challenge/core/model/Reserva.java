@@ -9,7 +9,7 @@ public class Reserva {
     private String nomeCliente;
     private Long idRestaurante;
     private LocalDateTime dataHora;
-    private StatusMesa status;
+    private StatusMesa status; // @TODO Retirar
     private int quantidadePessoas;
 
     public Reserva(long id, String nomeCliente, Long idRestaurante, LocalDateTime dataHora, StatusMesa status, int quantidadePessoas) {
@@ -52,11 +52,11 @@ public class Reserva {
         this.nomeCliente = nomeCliente;
     }
 
-    public Long getIdMesa() {
+    public Long getidRestaurante() {
         return idRestaurante;
     }
 
-    public void setIdMesa(Long idRestaurante) {
+    public void setidRestaurante(Long idRestaurante) {
         this.idRestaurante = idRestaurante;
     }
 

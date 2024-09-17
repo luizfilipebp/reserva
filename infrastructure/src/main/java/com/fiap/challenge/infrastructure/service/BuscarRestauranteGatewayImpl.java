@@ -38,8 +38,8 @@ public class BuscarRestauranteGatewayImpl implements BuscarRestauranteGateway {
 
     @Override
     @Transactional
-    public Optional<Restaurante> findById(Long idMesa) {
-        return Optional.ofNullable(RestauranteMapper.INSTANCE.restauranteEntityToRestaurante(repository.findById(idMesa).orElse(null)));
+    public Optional<Restaurante> findById(Long idRestaurante) {
+        return Optional.ofNullable(RestauranteMapper.INSTANCE.restauranteEntityToRestaurante(repository.findById(idRestaurante).orElse(null)));
     }
 
 
