@@ -23,23 +23,13 @@ public class CadastrarReservaUseCaseImpl implements CadastrarReservaUseCase {
 
     @Override
     public Reserva cadastrar(Reserva reserva) throws IllegalArgumentException {
-        validarReserva(reserva);
-
-        Restaurante restaurante = restauranteGateway.findById(reserva.getIdMesa())
+        Restaurante restaurante = restauranteGateway.findById(reserva.getIdRestaurante())
                 .orElseThrow(() -> new IllegalArgumentException("Restaurante não encontrado"));
 
         validarRestauranteAberto(restaurante, reserva);
-
-
         validarQuantidadePessoas(reserva, restaurante);
 
         return reservaGateway.cadastrar(reserva);
-    }
-
-    private void validarReserva(Reserva reserva) {
-        if (reserva == null) {
-            throw new IllegalArgumentException("Reserva inválida");
-        }
     }
 
     private void validarRestauranteAberto(Restaurante restaurante, Reserva reserva) {
@@ -53,21 +43,19 @@ public class CadastrarReservaUseCaseImpl implements CadastrarReservaUseCase {
     }
 
     private void validarQuantidadePessoas(Reserva reserva, Restaurante restaurante) {
-
         if (reserva.getQuantidadePessoas() > restaurante.getCapacidade()) {
-            throw new IllegalArgumentException("Restaurante sem capacidade para a quantidade de pessoas");
+            throw new IllegalArgumentException("Quantidade de pessoas da reserva ultrapassa a capacidade do restaurante");
         }
 
-
-        buscarReserva.findByDataHora(reserva.getDataHora())
+        int totalPessoas = buscarReserva.findByDataHora(reserva.getDataHora())
                 .stream()
-                .filter(r -> r.getIdMesa().equals(reserva.getIdMesa()))
-                .findFirst()
-                .ifPresent(r -> {
-                    if (r.getQuantidadePessoas() + reserva.getQuantidadePessoas() > restaurante.getCapacidade()) {
-                        throw new IllegalArgumentException("Restaurante sem capacidade para a quantidade de pessoas");
-                    }
-                });
+                .filter(r -> r.getIdRestaurante().equals(reserva.getIdRestaurante()))
+                .mapToInt(Reserva::getQuantidadePessoas)
+                .sum();
+
+        if (totalPessoas + reserva.getQuantidadePessoas() > restaurante.getCapacidade()) {
+            throw new IllegalArgumentException("Restaurante lotado para esta data e hora");
+        }
     }
 }
 
