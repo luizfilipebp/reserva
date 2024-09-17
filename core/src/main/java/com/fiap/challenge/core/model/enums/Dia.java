@@ -1,14 +1,13 @@
 package com.fiap.challenge.core.model.enums;
 
 public enum Dia {
-
-    DOMINGO("dom", "Domingo"),
-    SEGUNDA("seg", "Segunda-Feira"),
-    TERCA("ter", "Terça-Feira"),
-    QUARTA("qua", "Quarta-Feira"),
-    QUINTA("qui", "Quinta-Feira"),
-    SEXTA("sex", "Sexta-Feira"),
-    SABADO("sab", "Sábado");
+    DOMINGO("sunday", "Domingo"),
+    SEGUNDA("monday", "Segunda-Feira"),
+    TERCA("tuesday", "Terça-Feira"),
+    QUARTA("wednesday", "Quarta-Feira"),
+    QUINTA("thursday", "Quinta-Feira"),
+    SEXTA("friday", "Sexta-Feira"),
+    SABADO("saturday", "Sábado");
 
     private String codigo;
     private String descricao;
