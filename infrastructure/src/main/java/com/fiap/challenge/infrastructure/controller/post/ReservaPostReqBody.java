@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public record ReservaPostReqBody(
         String nomeCliente,
-        Long idMesa,
+        Long idRestaurante,
         LocalDateTime dataHora,
         StatusMesa status,
         int quantidadePessoas
