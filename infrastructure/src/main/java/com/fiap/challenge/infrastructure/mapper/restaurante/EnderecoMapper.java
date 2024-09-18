@@ -1,4 +1,4 @@
-package com.fiap.challenge.infrastructure.mapper.reserva;
+package com.fiap.challenge.infrastructure.mapper.restaurante;
 
 import com.fiap.challenge.core.model.valueobject.Endereco;
 import com.fiap.challenge.infrastructure.entity.restaurante.EnderecoEntity;

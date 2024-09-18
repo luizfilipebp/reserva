@@ -1,4 +1,4 @@
-package com.fiap.challenge.infrastructure.mapper.reserva;
+package com.fiap.challenge.infrastructure.mapper.restaurante;
 
 import com.fiap.challenge.core.model.Restaurante;
 import com.fiap.challenge.core.model.valueobject.Funcionamento;
