@@ -22,7 +22,7 @@ public class ReservaEntity {
     private long id;
 
     @Column(name = "RSV_NOME_CLIENTE")
-    private String nomeCliente;
+    private String idUsuario;
 
     @Column(name = "RSV_RES_ID")
     private Long idRestaurante;

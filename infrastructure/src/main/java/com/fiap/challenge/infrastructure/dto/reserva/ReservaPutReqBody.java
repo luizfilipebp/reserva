@@ -2,9 +2,8 @@ package com.fiap.challenge.infrastructure.dto.reserva;
 
 import java.time.LocalDateTime;
 
-public record ReservaPostReqBody(
-        String idUsuario,
-        Long idRestaurante,
+public record ReservaPutReqBody(
+        long id,
         LocalDateTime dataHora,
         int quantidadePessoas
 ) {

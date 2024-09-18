@@ -1,7 +1,6 @@
 package com.fiap.challenge.core.model;
 
 import com.fiap.challenge.core.model.enums.StatusReserva;
-import com.fiap.challenge.core.model.interfaces.IMesa;
 
 import java.time.LocalDateTime;
 
@@ -68,5 +67,13 @@ public class Reserva {
 
     public int getQuantidadePessoas() {
         return quantidadePessoas;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
+    }
+
+    public void setQuantidadePessoas(int quantidadePessoas) {
+        this.quantidadePessoas = quantidadePessoas;
     }
 }

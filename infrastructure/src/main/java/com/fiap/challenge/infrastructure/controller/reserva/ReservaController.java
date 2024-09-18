@@ -2,16 +2,15 @@ package com.fiap.challenge.infrastructure.controller.reserva;
 
 import com.fiap.challenge.core.model.Reserva;
 import com.fiap.challenge.infrastructure.dto.reserva.ReservaPostReqBody;
-import com.fiap.challenge.infrastructure.mapper.restaurante.ResevaMapper;
+import com.fiap.challenge.infrastructure.dto.reserva.ReservaPutReqBody;
+import com.fiap.challenge.infrastructure.mapper.reserva.ReservaMapper;
+import com.fiap.challenge.usecase.reserva.AtualizarReservaUseCase;
 import com.fiap.challenge.usecase.reserva.CadastrarReservaUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/reserva")
@@ -21,6 +20,8 @@ public class ReservaController {
 
     CadastrarReservaUseCase cadastrarReserva;
 
+    AtualizarReservaUseCase atualizarReserva;
+
     @PostMapping
     @Operation(
             summary = "Criar uma reserva",
@@ -28,8 +29,22 @@ public class ReservaController {
     )
     public ResponseEntity<Reserva> criar(@RequestBody ReservaPostReqBody req) {
 
-        Reserva reserva = ResevaMapper.INSTANCE.reservaPostReqBodyToReserva(req);
+        Reserva reserva = ReservaMapper.INSTANCE.reservaPostReqBodyToReserva(req);
 
         return ResponseEntity.ok().body(cadastrarReserva.cadastrar(reserva));
+    }
+
+
+    @PutMapping
+    @Operation(
+            summary = "Atualizar uma reserva",
+            description = "Endpoint responsável por atualizar uma reserva"
+    )
+    public ResponseEntity<Reserva> update(@RequestBody ReservaPutReqBody req) {
+
+        Reserva reserva = ReservaMapper.INSTANCE.reservaPutReqBodyToReserva(req);
+
+        return ResponseEntity.ok().body(atualizarReserva.atualizar(reserva));
+
     }
 }
