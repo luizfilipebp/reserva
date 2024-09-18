@@ -1,8 +1,8 @@
 package com.fiap.challenge.infrastructure.config;
 
-import com.fiap.challenge.application.gateway.BuscarReservaGateway;
-import com.fiap.challenge.application.gateway.BuscarRestauranteGateway;
-import com.fiap.challenge.application.gateway.CadastrarReservaGateway;
+import com.fiap.challenge.application.gateway.reserva.BuscarReservaGateway;
+import com.fiap.challenge.application.gateway.restaurante.BuscarRestauranteGateway;
+import com.fiap.challenge.application.gateway.reserva.CadastrarReservaGateway;
 import com.fiap.challenge.application.usecaseimpl.reserva.CadastrarReservaUseCaseImpl;
 import com.fiap.challenge.usecase.reserva.CadastrarReservaUseCase;
 import org.springframework.context.annotation.Bean;

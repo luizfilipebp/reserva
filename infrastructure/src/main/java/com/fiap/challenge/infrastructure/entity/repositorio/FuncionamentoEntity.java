@@ -1,4 +1,4 @@
-package com.fiap.challenge.infrastructure.entity;
+package com.fiap.challenge.infrastructure.entity.repositorio;
 
 import com.fiap.challenge.core.model.enums.Dia;
 import jakarta.persistence.*;

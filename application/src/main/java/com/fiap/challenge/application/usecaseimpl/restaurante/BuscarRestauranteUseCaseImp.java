@@ -1,6 +1,6 @@
 package com.fiap.challenge.application.usecaseimpl.restaurante;
 
-import com.fiap.challenge.application.gateway.BuscarRestauranteGateway;
+import com.fiap.challenge.application.gateway.restaurante.BuscarRestauranteGateway;
 import com.fiap.challenge.core.model.Restaurante;
 import com.fiap.challenge.core.model.enums.TipoCozinha;
 import com.fiap.challenge.core.model.valueobject.Endereco;

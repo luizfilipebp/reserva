@@ -1,4 +1,4 @@
-package com.fiap.challenge.infrastructure.controller.dto;
+package com.fiap.challenge.infrastructure.dto.restaurante;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

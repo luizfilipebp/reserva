@@ -1,8 +1,8 @@
-package com.fiap.challenge.infrastructure.mapper;
+package com.fiap.challenge.infrastructure.mapper.reserva;
 
 import com.fiap.challenge.core.model.valueobject.Endereco;
-import com.fiap.challenge.infrastructure.entity.EnderecoEntity;
-import com.fiap.challenge.infrastructure.entity.RestauranteEntity;
+import com.fiap.challenge.infrastructure.entity.repositorio.EnderecoEntity;
+import com.fiap.challenge.infrastructure.entity.repositorio.RestauranteEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

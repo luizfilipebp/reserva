@@ -1,10 +1,10 @@
-package com.fiap.challenge.infrastructure.mapper;
+package com.fiap.challenge.infrastructure.mapper.reserva;
 
 import com.fiap.challenge.core.model.Restaurante;
 import com.fiap.challenge.core.model.valueobject.Funcionamento;
-import com.fiap.challenge.infrastructure.controller.dto.RestaurantePostReqBody;
-import com.fiap.challenge.infrastructure.entity.FuncionamentoEntity;
-import com.fiap.challenge.infrastructure.entity.RestauranteEntity;
+import com.fiap.challenge.infrastructure.dto.restaurante.RestaurantePostReqBody;
+import com.fiap.challenge.infrastructure.entity.repositorio.FuncionamentoEntity;
+import com.fiap.challenge.infrastructure.entity.repositorio.RestauranteEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

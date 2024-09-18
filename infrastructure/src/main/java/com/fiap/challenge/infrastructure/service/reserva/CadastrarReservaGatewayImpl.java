@@ -1,10 +1,10 @@
 package com.fiap.challenge.infrastructure.service.reserva;
 
-import com.fiap.challenge.application.gateway.CadastrarReservaGateway;
+import com.fiap.challenge.application.gateway.reserva.CadastrarReservaGateway;
 import com.fiap.challenge.core.model.Reserva;
-import com.fiap.challenge.infrastructure.entity.ReservaEntity;
-import com.fiap.challenge.infrastructure.mapper.ResevaMapper;
-import com.fiap.challenge.infrastructure.repository.ReservaRepository;
+import com.fiap.challenge.infrastructure.entity.reserva.ReservaEntity;
+import com.fiap.challenge.infrastructure.mapper.restaurante.ResevaMapper;
+import com.fiap.challenge.infrastructure.repository.reserva.ReservaRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

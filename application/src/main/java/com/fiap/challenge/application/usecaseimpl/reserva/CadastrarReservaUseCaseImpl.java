@@ -1,8 +1,8 @@
 package com.fiap.challenge.application.usecaseimpl.reserva;
 
-import com.fiap.challenge.application.gateway.BuscarReservaGateway;
-import com.fiap.challenge.application.gateway.BuscarRestauranteGateway;
-import com.fiap.challenge.application.gateway.CadastrarReservaGateway;
+import com.fiap.challenge.application.gateway.reserva.BuscarReservaGateway;
+import com.fiap.challenge.application.gateway.restaurante.BuscarRestauranteGateway;
+import com.fiap.challenge.application.gateway.reserva.CadastrarReservaGateway;
 import com.fiap.challenge.core.model.Reserva;
 import com.fiap.challenge.core.model.Restaurante;
 import com.fiap.challenge.core.model.enums.Dia;
@@ -23,7 +23,7 @@ public class CadastrarReservaUseCaseImpl implements CadastrarReservaUseCase {
 
     @Override
     public Reserva cadastrar(Reserva reserva) throws IllegalArgumentException {
-        Restaurante restaurante = restauranteGateway.findById(reserva.getIdRestaurante())
+        Restaurante restaurante = restauranteGateway.findById(reserva.getidRestaurante())
                 .orElseThrow(() -> new IllegalArgumentException("Restaurante não encontrado"));
 
         validarRestauranteAberto(restaurante, reserva);
@@ -49,7 +49,7 @@ public class CadastrarReservaUseCaseImpl implements CadastrarReservaUseCase {
 
         int totalPessoas = buscarReserva.findByDataHora(reserva.getDataHora())
                 .stream()
-                .filter(r -> r.getIdRestaurante().equals(reserva.getIdRestaurante()))
+                .filter(r -> r.getidRestaurante().equals(reserva.getidRestaurante()))
                 .mapToInt(Reserva::getQuantidadePessoas)
                 .sum();
 

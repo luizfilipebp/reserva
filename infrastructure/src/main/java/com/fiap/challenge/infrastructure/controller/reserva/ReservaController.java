@@ -1,8 +1,8 @@
-package com.fiap.challenge.infrastructure.controller;
+package com.fiap.challenge.infrastructure.controller.reserva;
 
 import com.fiap.challenge.core.model.Reserva;
-import com.fiap.challenge.infrastructure.controller.post.ReservaPostReqBody;
-import com.fiap.challenge.infrastructure.mapper.ResevaMapper;
+import com.fiap.challenge.infrastructure.dto.reserva.ReservaPostReqBody;
+import com.fiap.challenge.infrastructure.mapper.restaurante.ResevaMapper;
 import com.fiap.challenge.usecase.reserva.CadastrarReservaUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

@@ -1,7 +1,7 @@
-package com.fiap.challenge.infrastructure.repository;
+package com.fiap.challenge.infrastructure.repository.restaurante;
 
 import com.fiap.challenge.core.model.enums.TipoCozinha;
-import com.fiap.challenge.infrastructure.entity.RestauranteEntity;
+import com.fiap.challenge.infrastructure.entity.repositorio.RestauranteEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

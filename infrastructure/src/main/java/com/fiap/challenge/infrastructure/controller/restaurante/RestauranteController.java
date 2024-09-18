@@ -1,10 +1,10 @@
-package com.fiap.challenge.infrastructure.controller;
+package com.fiap.challenge.infrastructure.controller.restaurante;
 
 import com.fiap.challenge.core.model.Restaurante;
 import com.fiap.challenge.core.model.enums.TipoCozinha;
 import com.fiap.challenge.core.model.valueobject.Endereco;
-import com.fiap.challenge.infrastructure.controller.dto.RestaurantePostReqBody;
-import com.fiap.challenge.infrastructure.mapper.RestauranteMapper;
+import com.fiap.challenge.infrastructure.dto.restaurante.RestaurantePostReqBody;
+import com.fiap.challenge.infrastructure.mapper.reserva.RestauranteMapper;
 import com.fiap.challenge.usecase.restaurante.BuscarRestauranteUseCase;
 import com.fiap.challenge.usecase.restaurante.CadastrarRestauranteUseCase;
 import io.swagger.v3.oas.annotations.Operation;

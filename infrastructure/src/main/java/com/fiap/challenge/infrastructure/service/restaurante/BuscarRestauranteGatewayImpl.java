@@ -1,10 +1,10 @@
-package com.fiap.challenge.infrastructure.service;
+package com.fiap.challenge.infrastructure.service.restaurante;
 
-import com.fiap.challenge.application.gateway.BuscarRestauranteGateway;
+import com.fiap.challenge.application.gateway.restaurante.BuscarRestauranteGateway;
 import com.fiap.challenge.core.model.Restaurante;
 import com.fiap.challenge.core.model.enums.TipoCozinha;
-import com.fiap.challenge.infrastructure.mapper.RestauranteMapper;
-import com.fiap.challenge.infrastructure.repository.RestauranteRepository;
+import com.fiap.challenge.infrastructure.mapper.reserva.RestauranteMapper;
+import com.fiap.challenge.infrastructure.repository.restaurante.RestauranteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

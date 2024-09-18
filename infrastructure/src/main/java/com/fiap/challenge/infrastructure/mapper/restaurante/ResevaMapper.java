@@ -1,8 +1,8 @@
-package com.fiap.challenge.infrastructure.mapper;
+package com.fiap.challenge.infrastructure.mapper.restaurante;
 
 import com.fiap.challenge.core.model.Reserva;
-import com.fiap.challenge.infrastructure.controller.post.ReservaPostReqBody;
-import com.fiap.challenge.infrastructure.entity.ReservaEntity;
+import com.fiap.challenge.infrastructure.dto.reserva.ReservaPostReqBody;
+import com.fiap.challenge.infrastructure.entity.reserva.ReservaEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

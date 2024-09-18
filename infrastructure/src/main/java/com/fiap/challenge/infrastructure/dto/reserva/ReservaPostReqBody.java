@@ -1,4 +1,4 @@
-package com.fiap.challenge.infrastructure.controller.post;
+package com.fiap.challenge.infrastructure.dto.reserva;
 
 import com.fiap.challenge.core.model.enums.StatusMesa;
 

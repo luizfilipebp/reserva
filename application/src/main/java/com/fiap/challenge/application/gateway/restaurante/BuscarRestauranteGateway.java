@@ -1,4 +1,4 @@
-package com.fiap.challenge.application.gateway;
+package com.fiap.challenge.application.gateway.restaurante;
 
 import com.fiap.challenge.core.model.Restaurante;
 import com.fiap.challenge.core.model.enums.TipoCozinha;

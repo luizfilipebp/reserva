@@ -1,6 +1,6 @@
-package com.fiap.challenge.infrastructure.repository;
+package com.fiap.challenge.infrastructure.repository.reserva;
 
-import com.fiap.challenge.infrastructure.entity.ReservaEntity;
+import com.fiap.challenge.infrastructure.entity.reserva.ReservaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
