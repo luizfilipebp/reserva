@@ -12,22 +12,30 @@ public class Reserva {
     private StatusReserva status;
     private int quantidadePessoas;
 
-    public Reserva(long id, String idUsuario, Long idRestaurante, LocalDateTime dataHora, int quantidadePessoas) {
+    public Reserva(long id, String idUsuario, Long idRestaurante, StatusReserva status, LocalDateTime dataHora, int quantidadePessoas) {
         this.id = id;
         this.idUsuario = idUsuario;
         this.idRestaurante = idRestaurante;
         this.dataHora = validarDataHora(dataHora);
-        this.status = StatusReserva.PENDENTE;
+        this.status = (status == null) ? StatusReserva.PENDENTE : validarStatus(status);
         this.quantidadePessoas = validarQuantidadePessoas(quantidadePessoas);
     }
 
-
-    public void cancelarReserva(){
+    public void cancelarReserva() {
         this.status = StatusReserva.CANCELADA;
     }
 
-    public void confirmarReserva(){
+    public void confirmarReserva() {
         this.status = StatusReserva.CONFIRMADA;
+    }
+
+    /**
+     * Toda vez que um status diferente de cancelada for passado, o status será pendente
+     * @param status Status da reserva
+     * @return StatusReserva
+     */
+    private StatusReserva validarStatus(StatusReserva status) {
+        return status.equals(StatusReserva.CANCELADA) ? status : StatusReserva.PENDENTE ;
     }
 
     private LocalDateTime validarDataHora(LocalDateTime dataHora) throws IllegalArgumentException {

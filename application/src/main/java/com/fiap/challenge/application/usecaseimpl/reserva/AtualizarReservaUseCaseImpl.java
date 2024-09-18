@@ -27,8 +27,8 @@ public class AtualizarReservaUseCaseImpl implements AtualizarReservaUseCase {
         Reserva reservaExistente = buscarReserva.findById(reserva.getId())
                 .orElseThrow(() -> new RuntimeException("Reserva não encontrada"));
 
-        if (!reserva.getStatus().equals(StatusReserva.PENDENTE)) {
-            throw new IllegalArgumentException("Reserva só pode ser atualizada se estiver pendente de confirmação");
+        if (!reservaExistente.getStatus().equals(StatusReserva.PENDENTE)) {
+            throw new IllegalArgumentException("Reserva somente pode ser atualizada se estiver pendente de confirmação");
         }
 
         Restaurante restaurante = buscarRestaurante.findById(reservaExistente.getIdRestaurante())

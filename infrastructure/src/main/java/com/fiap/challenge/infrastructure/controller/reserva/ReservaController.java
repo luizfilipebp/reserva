@@ -6,6 +6,7 @@ import com.fiap.challenge.infrastructure.dto.reserva.ReservaPutReqBody;
 import com.fiap.challenge.infrastructure.mapper.reserva.ReservaMapper;
 import com.fiap.challenge.usecase.reserva.AtualizarReservaUseCase;
 import com.fiap.challenge.usecase.reserva.CadastrarReservaUseCase;
+import com.fiap.challenge.usecase.reserva.CancelarReservaUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,8 @@ public class ReservaController {
     CadastrarReservaUseCase cadastrarReserva;
 
     AtualizarReservaUseCase atualizarReserva;
+
+    CancelarReservaUseCase cancelarReserva;
 
     @PostMapping
     @Operation(
@@ -47,4 +50,17 @@ public class ReservaController {
         return ResponseEntity.ok().body(atualizarReserva.atualizar(reserva));
 
     }
+
+    @PostMapping("/cancelar/{id}")
+    @Operation(
+            summary = "Criar uma reserva",
+            description = "Endpoint responsável por cancelar uma reserva"
+    )
+    public ResponseEntity<?> cancelar(@PathVariable Long id) {
+        cancelarReserva.cancelar(id);
+        return ResponseEntity.ok().build();
+    }
+
+
+
 }

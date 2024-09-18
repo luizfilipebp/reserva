@@ -6,8 +6,10 @@ import com.fiap.challenge.application.gateway.restaurante.BuscarRestauranteGatew
 import com.fiap.challenge.application.gateway.reserva.CadastrarReservaGateway;
 import com.fiap.challenge.application.usecaseimpl.reserva.AtualizarReservaUseCaseImpl;
 import com.fiap.challenge.application.usecaseimpl.reserva.CadastrarReservaUseCaseImpl;
+import com.fiap.challenge.application.usecaseimpl.reserva.CancelarReservaUseCaseImpl;
 import com.fiap.challenge.usecase.reserva.AtualizarReservaUseCase;
 import com.fiap.challenge.usecase.reserva.CadastrarReservaUseCase;
+import com.fiap.challenge.usecase.reserva.CancelarReservaUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,7 +21,14 @@ public class ReservaConfig {
     }
 
     @Bean
-    AtualizarReservaUseCase atualizarReservaUseCase(AtualizarReservaGateway atualizarReserva, BuscarReservaGateway buscarReserva, BuscarRestauranteGateway restauranteRestaurante){
+    AtualizarReservaUseCase atualizarReservaUseCase(AtualizarReservaGateway atualizarReserva, BuscarReservaGateway buscarReserva, BuscarRestauranteGateway restauranteRestaurante) {
         return new AtualizarReservaUseCaseImpl(atualizarReserva, buscarReserva, restauranteRestaurante);
+    }
+
+
+    @Bean
+    CancelarReservaUseCase cancelarReservaUseCase(BuscarReservaGateway buscarReserva, AtualizarReservaGateway atualizarReserva) {
+        return new CancelarReservaUseCaseImpl(buscarReserva, atualizarReserva);
+
     }
 }
