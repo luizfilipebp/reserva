@@ -1,4 +1,4 @@
-package com.fiap.challenge.infrastructure.entity.repositorio;
+package com.fiap.challenge.infrastructure.entity.restaurante;
 
 import com.fiap.challenge.core.model.enums.TipoCozinha;
 import jakarta.persistence.*;

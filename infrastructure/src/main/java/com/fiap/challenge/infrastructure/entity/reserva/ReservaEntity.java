@@ -2,6 +2,7 @@ package com.fiap.challenge.infrastructure.entity.reserva;
 
 
 import com.fiap.challenge.core.model.enums.StatusMesa;
+import com.fiap.challenge.core.model.enums.StatusReserva;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,7 +32,7 @@ public class ReservaEntity {
 
     @Column(name = "RSV_STATUS")
     @Enumerated(EnumType.STRING)
-    private StatusMesa status;
+    private StatusReserva status;
 
     @Column(name = "RSV_QTD_PESSOAS")
     private int quantidadePessoas;

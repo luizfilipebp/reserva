@@ -1,24 +1,34 @@
 package com.fiap.challenge.core.model;
 
-import com.fiap.challenge.core.model.enums.StatusMesa;
+import com.fiap.challenge.core.model.enums.StatusReserva;
+import com.fiap.challenge.core.model.interfaces.IMesa;
 
 import java.time.LocalDateTime;
 
 public class Reserva {
     private long id;
-    private String nomeCliente;
+    private String idUsuario;
     private Long idRestaurante;
     private LocalDateTime dataHora;
-    private StatusMesa status; // @TODO Retirar
+    private StatusReserva status;
     private int quantidadePessoas;
 
-    public Reserva(long id, String nomeCliente, Long idRestaurante, LocalDateTime dataHora, StatusMesa status, int quantidadePessoas) {
+    public Reserva(long id, String idUsuario, Long idRestaurante, LocalDateTime dataHora, int quantidadePessoas) {
         this.id = id;
-        this.nomeCliente = nomeCliente;
+        this.idUsuario = idUsuario;
         this.idRestaurante = idRestaurante;
         this.dataHora = validarDataHora(dataHora);
-        this.status = status;
+        this.status = StatusReserva.PENDENTE;
         this.quantidadePessoas = validarQuantidadePessoas(quantidadePessoas);
+    }
+
+
+    public void cancelarReserva(){
+        this.status = StatusReserva.CANCELADA;
+    }
+
+    public void confirmarReserva(){
+        this.status = StatusReserva.CONFIRMADA;
     }
 
     private LocalDateTime validarDataHora(LocalDateTime dataHora) throws IllegalArgumentException {
@@ -36,43 +46,27 @@ public class Reserva {
     }
 
 
-    public int getQuantidadePessoas() {
-        return quantidadePessoas;
+    public long getId() {
+        return id;
     }
 
-    public void setQuantidadePessoas(int quantidadePessoas) {
-        this.quantidadePessoas = quantidadePessoas;
+    public String getIdUsuario() {
+        return idUsuario;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
-    }
-
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
-    }
-
-    public Long getidRestaurante() {
+    public Long getIdRestaurante() {
         return idRestaurante;
-    }
-
-    public void setidRestaurante(Long idRestaurante) {
-        this.idRestaurante = idRestaurante;
     }
 
     public LocalDateTime getDataHora() {
         return dataHora;
     }
 
-    public void setDataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
-    }
-
-    public StatusMesa getStatus() {
+    public StatusReserva getStatus() {
         return status;
     }
 
-    public void setStatus(StatusMesa status) {
-        this.status = status;
+    public int getQuantidadePessoas() {
+        return quantidadePessoas;
     }
 }

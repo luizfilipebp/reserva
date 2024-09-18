@@ -23,13 +23,23 @@ public class CadastrarReservaUseCaseImpl implements CadastrarReservaUseCase {
 
     @Override
     public Reserva cadastrar(Reserva reserva) throws IllegalArgumentException {
-        Restaurante restaurante = restauranteGateway.findById(reserva.getidRestaurante())
+        Restaurante restaurante = restauranteGateway.findById(reserva.getIdRestaurante())
                 .orElseThrow(() -> new IllegalArgumentException("Restaurante não encontrado"));
 
         validarRestauranteAberto(restaurante, reserva);
         validarQuantidadePessoas(reserva, restaurante);
 
+        //verificar ser existe mesa disponivel
+
+
+        //verificar se a mesa esta disponivel para a quantidade de pessoas
+
+
+
         return reservaGateway.cadastrar(reserva);
+    }
+
+    private void validarMesaDisponivel() {
     }
 
     private void validarRestauranteAberto(Restaurante restaurante, Reserva reserva) {
@@ -49,7 +59,7 @@ public class CadastrarReservaUseCaseImpl implements CadastrarReservaUseCase {
 
         int totalPessoas = buscarReserva.findByDataHora(reserva.getDataHora())
                 .stream()
-                .filter(r -> r.getidRestaurante().equals(reserva.getidRestaurante()))
+                .filter(r -> r.getIdRestaurante().equals(reserva.getIdRestaurante()))
                 .mapToInt(Reserva::getQuantidadePessoas)
                 .sum();
 

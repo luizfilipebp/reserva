@@ -2,7 +2,7 @@ package com.fiap.challenge.infrastructure.service.restaurante;
 
 import com.fiap.challenge.application.gateway.restaurante.CadastrarRestauranteGateway;
 import com.fiap.challenge.core.model.Restaurante;
-import com.fiap.challenge.infrastructure.entity.repositorio.RestauranteEntity;
+import com.fiap.challenge.infrastructure.entity.restaurante.RestauranteEntity;
 import com.fiap.challenge.infrastructure.mapper.reserva.RestauranteMapper;
 import com.fiap.challenge.infrastructure.repository.restaurante.RestauranteRepository;
 import lombok.AllArgsConstructor;
