@@ -18,11 +18,8 @@ public class CancelarReservaUseCaseImpl implements CancelarReservaUseCase {
 
     @Override
     public void cancelar(Long idReserva) {
-        Reserva reserva = buscarReserva.findById(idReserva).orElseThrow(() -> new RuntimeException("Reserva não encontrada"));
-
+        Reserva reserva = buscarReserva.findById(idReserva);
         reserva.cancelarReserva();
-
         atualizarReserva.atualizar(reserva);
-
     }
 }

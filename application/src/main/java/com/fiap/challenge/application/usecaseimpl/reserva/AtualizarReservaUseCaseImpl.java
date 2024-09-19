@@ -24,8 +24,7 @@ public class AtualizarReservaUseCaseImpl implements AtualizarReservaUseCase {
 
     @Override
     public Reserva atualizar(Reserva reserva) {
-        Reserva reservaExistente = buscarReserva.findById(reserva.getId())
-                .orElseThrow(() -> new RuntimeException("Reserva não encontrada"));
+        Reserva reservaExistente = buscarReserva.findById(reserva.getId());
 
         if (!reservaExistente.getStatus().equals(StatusReserva.PENDENTE)) {
             throw new IllegalArgumentException("Reserva somente pode ser atualizada se estiver pendente de confirmação");

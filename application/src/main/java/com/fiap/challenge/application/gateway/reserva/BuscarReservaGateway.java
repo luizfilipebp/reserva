@@ -4,11 +4,10 @@ import com.fiap.challenge.core.model.Reserva;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 public interface BuscarReservaGateway {
-
+    Reserva findById(Long id) throws RuntimeException;
+    List<Reserva> findByIdUsuario(String idUsuario);
     List<Reserva> findByDataHora(LocalDateTime dataHora);
-
-    Optional<Reserva> findById(Long id);
+    List<Reserva> findAll(int page, int size);
 }
