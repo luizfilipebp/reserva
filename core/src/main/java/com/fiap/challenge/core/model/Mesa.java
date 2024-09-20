@@ -9,10 +9,10 @@ public class Mesa implements IMesa {
     private StatusMesa status;
     private int capacidade;
 
-    public Mesa(Long id, Long idRestaurante, int capacidade) {
+    public Mesa(Long id, Long idRestaurante, StatusMesa status, int capacidade) {
         this.id = id;
         this.idRestaurante = idRestaurante;
-        this.status = StatusMesa.DISPONIVEL;
+        this.status = (status == null) ? StatusMesa.DISPONIVEL : status;
         this.capacidade = capacidade;
     }
 
@@ -28,6 +28,18 @@ public class Mesa implements IMesa {
         this.status = StatusMesa.RESERVADA;
     }
 
+    public void indisponibilizar() {
+        this.status = StatusMesa.INDISPONIVEL;
+    }
+
+    public void ocupar() {
+        if (!this.status.equals(StatusMesa.DISPONIVEL)) {
+            throw new RuntimeException("Mesa somente pode ser ocupada se estiver disponível");
+        }
+
+        this.status = StatusMesa.OCUPADA;
+    }
+
     @Override
     public void limpar() {
         this.status = StatusMesa.EM_LIMPEZA;
@@ -35,6 +47,10 @@ public class Mesa implements IMesa {
 
     @Override
     public void disponibilizar() {
+        if(!this.status.equals(StatusMesa.EM_LIMPEZA)){
+            throw new RuntimeException("Mesa somente pode ser disponibilizada se estiver em limpeza");
+        }
+
         this.status = StatusMesa.DISPONIVEL;
     }
 
@@ -58,5 +74,16 @@ public class Mesa implements IMesa {
 
     public int getCapacidade() {
         return capacidade;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Mesa{" +
+                "id=" + id +
+                ", idRestaurante=" + idRestaurante +
+                ", status=" + status +
+                ", capacidade=" + capacidade +
+                '}';
     }
 }
