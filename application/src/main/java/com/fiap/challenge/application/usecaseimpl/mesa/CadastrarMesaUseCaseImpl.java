@@ -5,14 +5,14 @@ import com.fiap.challenge.application.gateway.restaurante.BuscarRestauranteGatew
 import com.fiap.challenge.core.model.Mesa;
 import com.fiap.challenge.usecase.mesa.CadastrarMesaUseCase;
 
-public class CadastrarMesaUseCaseImp implements CadastrarMesaUseCase {
+public class CadastrarMesaUseCaseImpl implements CadastrarMesaUseCase {
 
     private final CadastrarMesaGateway cadastrarMesa;
 
     private final BuscarRestauranteGateway buscarRestaurante;
 
 
-    public CadastrarMesaUseCaseImp(CadastrarMesaGateway gateway, BuscarRestauranteGateway buscarRestaurante) {
+    public CadastrarMesaUseCaseImpl(CadastrarMesaGateway gateway, BuscarRestauranteGateway buscarRestaurante) {
         this.cadastrarMesa = gateway;
         this.buscarRestaurante = buscarRestaurante;
     }

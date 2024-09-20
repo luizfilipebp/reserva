@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class CadastrarMesaGatewayImp implements CadastrarMesaGateway {
+public class CadastrarMesaGatewayImpl implements CadastrarMesaGateway {
 
     private final MesaRepository repository;
 

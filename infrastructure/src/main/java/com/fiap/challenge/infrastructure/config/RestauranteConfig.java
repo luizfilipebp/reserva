@@ -2,7 +2,7 @@ package com.fiap.challenge.infrastructure.config;
 
 import com.fiap.challenge.application.gateway.restaurante.BuscarRestauranteGateway;
 import com.fiap.challenge.application.gateway.restaurante.CadastrarRestauranteGateway;
-import com.fiap.challenge.application.usecaseimpl.restaurante.BuscarRestauranteUseCaseImp;
+import com.fiap.challenge.application.usecaseimpl.restaurante.BuscarRestauranteUseCaseImpl;
 import com.fiap.challenge.application.usecaseimpl.restaurante.CadastrarRestauranteUseCaseImpl;
 import com.fiap.challenge.usecase.restaurante.BuscarRestauranteUseCase;
 import com.fiap.challenge.usecase.restaurante.CadastrarRestauranteUseCase;
@@ -13,9 +13,8 @@ import org.springframework.context.annotation.Configuration;
 public class RestauranteConfig {
     @Bean
     BuscarRestauranteUseCase buscarRestauranteUseCase(BuscarRestauranteGateway restauranteGateway){
-        return new BuscarRestauranteUseCaseImp(restauranteGateway);
+        return new BuscarRestauranteUseCaseImpl(restauranteGateway);
     }
-
 
     @Bean
     CadastrarRestauranteUseCase cadastrarRestauranteUseCase(CadastrarRestauranteGateway restauranteGateway){

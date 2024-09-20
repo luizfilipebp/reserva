@@ -9,11 +9,11 @@ import com.fiap.challenge.usecase.restaurante.BuscarRestauranteUseCase;
 import java.util.List;
 import java.util.Optional;
 
-public class BuscarRestauranteUseCaseImp implements BuscarRestauranteUseCase {
+public class BuscarRestauranteUseCaseImpl implements BuscarRestauranteUseCase {
 
     BuscarRestauranteGateway restauranteGateway;
 
-    public BuscarRestauranteUseCaseImp(BuscarRestauranteGateway restauranteGateway) {
+    public BuscarRestauranteUseCaseImpl(BuscarRestauranteGateway restauranteGateway) {
         this.restauranteGateway = restauranteGateway;
     }
 
