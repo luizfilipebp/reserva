@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 
 public class Reserva {
     private long id;
-    private String idUsuario;
-    private Long idRestaurante;
+    private final String idUsuario;
+    private final Long idRestaurante;
     private LocalDateTime dataHora;
     private StatusReserva status;
     private int quantidadePessoas;
@@ -31,11 +31,12 @@ public class Reserva {
 
     /**
      * Toda vez que um status diferente de cancelada for passado, o status será pendente
+     *
      * @param status Status da reserva
      * @return StatusReserva
      */
     private StatusReserva validarStatus(StatusReserva status) {
-        return status.equals(StatusReserva.CANCELADA) ? status : StatusReserva.PENDENTE ;
+        return status.equals(StatusReserva.CANCELADA) ? status : StatusReserva.PENDENTE;
     }
 
     private LocalDateTime validarDataHora(LocalDateTime dataHora) throws IllegalArgumentException {
@@ -78,10 +79,10 @@ public class Reserva {
     }
 
     public void setDataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
+        this.dataHora = validarDataHora(dataHora);
     }
 
     public void setQuantidadePessoas(int quantidadePessoas) {
-        this.quantidadePessoas = quantidadePessoas;
+        this.quantidadePessoas = validarQuantidadePessoas(quantidadePessoas);
     }
 }

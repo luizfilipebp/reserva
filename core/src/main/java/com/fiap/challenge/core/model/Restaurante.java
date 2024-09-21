@@ -17,10 +17,48 @@ public class Restaurante {
     public Restaurante(long id, String nome, Endereco localizacao, TipoCozinha tipoCozinha, List<Funcionamento> diasFuncionamento, int capacidade) {
         this.id = id;
         this.nome = nome;
-        this.localizacao = localizacao;
+        this.localizacao = validarLocalizacao(localizacao);
         this.tipoCozinha = tipoCozinha;
-        this.diasFuncionamento = diasFuncionamento;
-        this.capacidade = capacidade;
+        this.diasFuncionamento = validarDiasFuncionamento(diasFuncionamento);
+        this.capacidade = validarCapacidade(capacidade);
+    }
+
+    private Endereco validarLocalizacao(Endereco localizacao) {
+        if (localizacao == null) {
+            throw new IllegalArgumentException("Localização inválida");
+        }
+
+        return localizacao;
+    }
+
+    private List<Funcionamento> validarDiasFuncionamento(List<Funcionamento> diasFuncionamento) {
+        if (diasFuncionamento == null || diasFuncionamento.isEmpty()) {
+            throw new IllegalArgumentException("Dias de funcionamento inválidos");
+        }
+
+        for (Funcionamento funcionamento : diasFuncionamento) {
+            if (funcionamento.horaAbertura() == null || funcionamento.horaFechamento() == null) {
+                throw new IllegalArgumentException("Horário de abertura ou fechamento inválido");
+            }
+
+            if (funcionamento.horaAbertura().isAfter(funcionamento.horaFechamento())) {
+                throw new IllegalArgumentException("Horário de abertura maior que horário de fechamento");
+            }
+
+
+            if (funcionamento.horaAbertura() == funcionamento.horaFechamento()) {
+                throw new IllegalArgumentException("Horário de abertura igual ao horário de fechamento");
+            }
+        }
+
+        return diasFuncionamento;
+    }
+
+    private int validarCapacidade(int capacidade) {
+        if (capacidade <= 0) {
+            throw new IllegalArgumentException("Capacidade inválida");
+        }
+        return capacidade;
     }
 
     public long getId() {
@@ -44,7 +82,7 @@ public class Restaurante {
     }
 
     public void setLocalizacao(Endereco localizacao) {
-        this.localizacao = localizacao;
+        this.localizacao = validarLocalizacao(localizacao);
     }
 
     public TipoCozinha getTipoCozinha() {
@@ -60,7 +98,7 @@ public class Restaurante {
     }
 
     public void setDiasFuncionamento(List<Funcionamento> diasFuncionamento) {
-        this.diasFuncionamento = diasFuncionamento;
+        this.diasFuncionamento = validarDiasFuncionamento(diasFuncionamento);
     }
 
     public int getCapacidade() {
@@ -68,6 +106,6 @@ public class Restaurante {
     }
 
     public void setCapacidade(int capacidade) {
-        this.capacidade = capacidade;
+        this.capacidade = validarCapacidade(capacidade);
     }
 }

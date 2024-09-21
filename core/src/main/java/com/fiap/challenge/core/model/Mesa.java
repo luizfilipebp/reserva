@@ -1,11 +1,10 @@
 package com.fiap.challenge.core.model;
 
 import com.fiap.challenge.core.model.enums.StatusMesa;
-import com.fiap.challenge.core.model.interfaces.IMesa;
 
-public class Mesa implements IMesa {
+public class Mesa{
     private long id;
-    private long idRestaurante;
+    private final long  idRestaurante;
     private StatusMesa status;
     private int capacidade;
 
@@ -40,12 +39,10 @@ public class Mesa implements IMesa {
         this.status = StatusMesa.OCUPADA;
     }
 
-    @Override
     public void limpar() {
         this.status = StatusMesa.EM_LIMPEZA;
     }
 
-    @Override
     public void disponibilizar() {
         if(!this.status.equals(StatusMesa.EM_LIMPEZA)){
             throw new RuntimeException("Mesa somente pode ser disponibilizada se estiver em limpeza");
@@ -54,7 +51,6 @@ public class Mesa implements IMesa {
         this.status = StatusMesa.DISPONIVEL;
     }
 
-    @Override
     public boolean verificarDisonibilidade() {
         return this.status == StatusMesa.DISPONIVEL;
     }
