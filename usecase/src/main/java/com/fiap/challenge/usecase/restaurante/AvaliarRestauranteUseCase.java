@@ -1,8 +1,14 @@
 package com.fiap.challenge.usecase.restaurante;
 
-import com.fiap.challenge.core.model.Restaurante;
-import com.fiap.challenge.core.model.Usuario;
+import com.fiap.challenge.core.model.Avaliar;
+
+import java.util.List;
+import java.util.Optional;
 
 public interface AvaliarRestauranteUseCase {
-    void avaliar(Restaurante restaurante, Usuario usuario, String avaliacao);
+    Avaliar avaliarRestaurante(Avaliar avaliar);
+
+    Optional<Avaliar> buscarAvaliacaoPorId (long id);
+
+    List<Avaliar> buscarAvaliacaoTodos(int page, int size);
 }
